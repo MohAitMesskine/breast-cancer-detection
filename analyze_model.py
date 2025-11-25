@@ -5,7 +5,7 @@ from torchvision import models
 device = torch.device('cpu')
 
 # Load checkpoint and inspect structure
-checkpoint = torch.load('best_regnet_binary_model.pth', map_location=device, weights_only=False)
+checkpoint = torch.load('best_regnet_model.pth', map_location=device, weights_only=False)
 state_dict = checkpoint['model_state_dict']
 
 print("Analyzing model structure from checkpoint...")

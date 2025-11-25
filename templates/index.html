@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Detection - AI Diagnostic Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-heartbeat"></i>
+                <span>CancerDetect AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/about">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>AI-Powered Breast Cancer Detection</h1>
+                <p>Upload medical images for instant analysis using advanced deep learning technology</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <i class="fas fa-brain"></i>
+                        <div>
+                            <h3>RegNet AI</h3>
+                            <p>Advanced Model</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h3>Secure</h3>
+                            <p>Private & Safe</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h3>Instant</h3>
+                            <p>Fast Results</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="container">
+            <div class="upload-card">
+                <h2>Upload Medical Image</h2>
+                <p class="subtitle">Upload a breast tissue image for AI analysis</p>
+                
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>Drag & Drop your image here</h3>
+                        <p>or</p>
+                        <label for="fileInput" class="btn-upload">
+                            <i class="fas fa-folder-open"></i> Browse Files
+                        </label>
+                        <input type="file" id="fileInput" name="file" accept="image/png, image/jpeg, .jpg, .jpeg" hidden>
+                        <p class="file-info">Supported formats: PNG, JPEG, JPG (Max 16MB)</p>
+                    </div>
+
+                    <div id="previewSection" class="preview-section" style="display: none;">
+                        <div class="preview-container">
+                            <img id="imagePreview" src="" alt="Preview">
+                            <button type="button" class="btn-remove" id="removeBtn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <button type="submit" class="btn-analyze" id="analyzeBtn">
+                            <i class="fas fa-microscope"></i> Analyze Image
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing image...</p>
+                </div>
+
+                <!-- Results Section -->
+                <div id="resultsSection" class="results-section" style="display: none;">
+                    <div class="result-header">
+                        <h2>Analysis Results</h2>
+                    </div>
+                    
+                    <div class="result-content">
+                        <div class="result-image">
+                            <img id="resultImage" src="" alt="Analyzed Image">
+                        </div>
+                        
+                        <div class="result-details">
+                            <div class="prediction-card" id="predictionCard">
+                                <div class="prediction-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>Prediction</h3>
+                                <p class="prediction-result" id="predictionResult">-</p>
+                                <div class="confidence-bar">
+                                    <div class="confidence-label">
+                                        <span>Confidence</span>
+                                        <span id="confidenceValue">0%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="progressFill"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="probabilities-card">
+                                <h4>Detailed Probabilities</h4>
+                                <div class="probability-item">
+                                    <div class="prob-label">
+                                        <span class="dot benign"></span>
+                                        <span>Benign</span>
+                                    </div>
+                                    <span id="benignProb" class="prob-value">0%</span>
+                                </div>
+                                <div class="probability-item">
+                                    <div class="prob-label">
+                                        <span class="dot malignant"></span>
+                                        <span>Malignant</span>
+                                    </div>
+                                    <span id="malignantProb" class="prob-value">0%</span>
+                                </div>
+                            </div>
+
+                            <div class="disclaimer">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p><strong>Important:</strong> This is an AI-assisted tool and should not replace professional medical diagnosis. Please consult with healthcare professionals for proper evaluation.</p>
+                            </div>
+
+                            <button type="button" class="btn-new-analysis" id="newAnalysisBtn">
+                                <i class="fas fa-redo"></i> New Analysis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CancerDetect AI. For research and educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

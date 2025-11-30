@@ -1,17 +1,10 @@
 # 🩺 Breast Cancer Detection AI
 
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)
-![Flask](https://img.shields.io/badge/Flask-3.0+-green.svg)
-![License](https://img.shields.io/badge/License-Educational-yellow.svg)
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg) ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg) ![Flask](https://img.shields.io/badge/Flask-3.0+-green.svg) ![License](https://img.shields.io/badge/License-Educational-yellow.svg)
 
 A Flask web application that uses deep learning (RegNet model) to detect breast cancer from medical images. The application provides a modern, user-friendly interface for uploading images and receiving instant AI-powered predictions.
 
 [Features](#features) • [Installation](#installation) • [Usage](#usage) • [Dataset](#dataset) • [Model Info](#model-information)
-
-</div>
 
 ---
 
@@ -95,6 +88,7 @@ pip install Flask torch torchvision Pillow
 ### Step 4: Verify Model File
 
 Ensure the trained model file is in the project root:
+
 ```
 project_dl/
 ├── best_regnet_binary_model.pth  ← This file should be here
@@ -151,7 +145,8 @@ This model was trained on the **5C Breast Cancer Dataset**, sourced from Roboflo
 
 ### Dataset Links
 
-- 🔗 **Kaggle Dataset**: [Breast Cancer Dataset by Amine Bahyoul](https://www.kaggle.com/datasets/aminebahyoul/breast-cancer-dataset)
+- 🔗 **Kaggle Dataset**: [Breast Cancer Dataset ](https://www.kaggle.com/datasets/aminebahyoul/breast-cancer-dataset)
+- 🔗 **Kaggle Notebook**: [Project DL Training Notebook](https://www.kaggle.com/code/meeeeeeeeeeeeeed/projet-dl)
 - 🔗 **Original Source**: [5C_Breast Cancer on Roboflow Universe](https://universe.roboflow.com/med-qhtrw/5c_breast-cancer-cgbl1)
 
 ### Dataset Details
@@ -172,18 +167,21 @@ This model was trained on the **5C Breast Cancer Dataset**, sourced from Roboflo
 1. **Source**: Roboflow Universe (med-qhtrw/5c_breast-cancer-cgbl1)
 2. **Processing**: Dataset preparation and organization
 3. **Distribution**: Imported to Kaggle for accessibility
-4. **Training**: Used for RegNet model training
+4. **Training**: Used for RegNet model training (see Kaggle notebook)
 
 ### Citation
 
-If you use this dataset, please cite:
+If you use this dataset or model, please cite:
 
 ```
 5C_Breast Cancer Dataset. Roboflow Universe.
 https://universe.roboflow.com/med-qhtrw/5c_breast-cancer-cgbl1
 
-Amine Bahyoul. (2024). Breast Cancer Dataset. Kaggle.
-https://www.kaggle.com/datasets/aminebahyoul/breast-cancer-dataset
+Breast Cancer Dataset. Kaggle.
+https://www.kaggle.com/datasets/meeeeeeeeeeeeeed/breast-cancer
+
+Project Training Notebook. Kaggle.
+https://www.kaggle.com/code/meeeeeeeeeeeeeed/projet-dl
 ```
 
 ---
@@ -192,11 +190,12 @@ https://www.kaggle.com/datasets/aminebahyoul/breast-cancer-dataset
 
 ```
 project_dl/
-│── Evaluation                      # Evaluation model pictures
+│
+├── Evaluation                      # Evaluation model pictures
 ├── app.py                          # Flask application (main backend)
 ├── best_regnet_binary_model.pth    # Trained RegNet model weights
-├── requirements.txt                 # Python dependencies
-├── README.md                        # Project documentation
+├── requirements.txt                # Python dependencies
+├── README.md                       # Project documentation
 │
 ├── templates/
 │   ├── index.html                  # Main application page
@@ -267,6 +266,7 @@ dir best_regnet_binary_model.pth     # Windows
 **Problem**: `Address already in use` error
 
 **Solution**: Change the port in `app.py`:
+
 ```python
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5001)  # Change to 5001 or any free port
@@ -277,6 +277,7 @@ if __name__ == '__main__':
 **Problem**: GPU not detected or CUDA errors
 
 **Solution**: The app automatically falls back to CPU. To force CPU mode:
+
 ```python
 device = torch.device('cpu')
 ```
@@ -302,8 +303,6 @@ pip install --upgrade -r requirements.txt
 
 ---
 
-
-
 ## 👥 Contributors
 
 This project was developed as an **academic project** by Information Systems Engineering Master's students:
@@ -312,18 +311,18 @@ This project was developed as an **academic project** by Information Systems Eng
   <tr>
     <td align="center">
       <strong>Yahia Ezzahri</strong><br>
-      <sub>Information Systems Engineer (Master)</sub><br>
-      <sub>Model Development & Backend</sub>
+      Information Systems Engineer (Master)<br>
+      Model Development & Backend
     </td>
     <td align="center">
       <strong>Amine Bahyoul</strong><br>
-      <sub>Information Systems Engineer (Master)</sub><br>
-      <sub>Dataset Curation & ML Engineering</sub>
+      Information Systems Engineer (Master)<br>
+      Dataset Curation & ML Engineering
     </td>
     <td align="center">
       <strong>Mohamed Ait Messskine</strong><br>
-      <sub>Information Systems Engineer (Master)</sub><br>
-      <sub>Frontend Development & Testing</sub>
+      Information Systems Engineer (Master)<br>
+      Frontend Development & Testing
     </td>
   </tr>
 </table>
@@ -345,7 +344,7 @@ This project was developed as an **academic project** by Information Systems Eng
 
 ## ⚠️ Medical Disclaimer
 
-> **IMPORTANT**: This application is designed for **educational and research purposes only**. 
+> **IMPORTANT**: This application is designed for **educational and research purposes only**.
 >
 > - ❌ **DO NOT** use as a replacement for professional medical diagnosis
 > - ❌ **DO NOT** make medical decisions based solely on this tool
@@ -358,7 +357,7 @@ This project was developed as an **academic project** by Information Systems Eng
 
 ## 📄 License
 
-This project is released for **educational and research purposes**. 
+This project is released for **educational and research purposes**.
 
 ### Usage Rights
 
@@ -383,7 +382,6 @@ When using this project, ensure compliance with:
 ### Getting Help
 
 If you encounter issues:
-
 1. Check the [Troubleshooting](#troubleshooting) section
 2. Review Python version compatibility (3.8+)
 3. Verify all dependencies are installed
@@ -392,7 +390,6 @@ If you encounter issues:
 ### Contributing
 
 We welcome contributions! To contribute:
-
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
@@ -417,10 +414,6 @@ For questions, suggestions, or collaboration opportunities, please reach out to 
 
 ---
 
-<div align="center">
-
 **Made with ❤️ for medical AI research**
 
 ⭐ Star this repository if you found it helpful!
-
-</div>

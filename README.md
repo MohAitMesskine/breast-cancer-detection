@@ -145,7 +145,7 @@ This model was trained on the **5C Breast Cancer Dataset**, sourced from Roboflo
 
 ### Dataset Links
 
-- 🔗 **Kaggle Dataset**: [Breast Cancer Dataset ](https://www.kaggle.com/datasets/aminebahyoul/breast-cancer-dataset)
+- 🔗 **Kaggle Dataset**: [Breast Cancer Dataset ](https://www.kaggle.com/datasets/meeeeeeeeeeeeeed/breast-cancer)
 - 🔗 **Kaggle Notebook**: [Project DL Training Notebook](https://www.kaggle.com/code/meeeeeeeeeeeeeed/projet-dl)
 - 🔗 **Original Source**: [5C_Breast Cancer on Roboflow Universe](https://universe.roboflow.com/med-qhtrw/5c_breast-cancer-cgbl1)
 
